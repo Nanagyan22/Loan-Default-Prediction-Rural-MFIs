@@ -1,20 +1,26 @@
-# app.py – Real-Time Loan Default Scoring (Random Forest Only)
+# app.py – Real-Time Loan Default Scoring (Single Entry Form)
 import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
 
+import os
+
 # ----------------------------
-# Load Random Forest pipeline and preprocessor
+# Load Random Forest model and preprocessor
 # ----------------------------
 @st.cache_resource
 def load_model():
-    rf_pipeline = joblib.load("artifacts/rf_pipeline.joblib")
-    preprocessor = joblib.load("artifacts/preprocessor.joblib")
+    base_path = os.path.dirname(__file__)
+    rf_pipeline_path = os.path.join(base_path, "artifacts/rf_pipeline.joblib")
+    preprocessor_path = os.path.join(base_path, "artifacts/preprocessor.joblib")
+
+    rf_pipeline = joblib.load(rf_pipeline_path)
+    preprocessor = joblib.load(preprocessor_path)
     return rf_pipeline, preprocessor
 
 rf_pipeline, preprocessor = load_model()
-threshold = 0.062  # adjust based on your calibration/tuning
+threshold = 0.062  # Based on threshold tuning
 
 # ----------------------------
 # Page Config
@@ -63,9 +69,7 @@ with st.form("borrower_form"):
 if submitted:
     with st.spinner("🔎 Analyzing Credit Risk..."):
 
-        # ----------------------------
         # Construct input DataFrame
-        # ----------------------------
         input_data = pd.DataFrame([{
             "Age": age,
             "Loan_Age_Days": loan_age_days,
@@ -79,44 +83,31 @@ if submitted:
             "Avg_Days_Past_Due_Previous": np.log1p(avg_days_past_due)
         }])
 
-        # ----------------------------
-        # Ensure all expected columns exist
-        # ----------------------------
-        for col in preprocessor.feature_names_in_:
+        # Make sure all features expected by preprocessor exist
+        for col in rf_pipeline.named_steps['preprocessor'].get_feature_names_out():
             if col not in input_data.columns:
-                # Fill numeric columns with 0, categorical with 'Unknown'
-                if col in preprocessor.transformers_[1][2]:  # categorical columns
-                    input_data[col] = 'Unknown'
-                else:
-                    input_data[col] = 0
+                input_data[col] = 0
 
-        # Reorder columns
-        input_data = input_data[preprocessor.feature_names_in_]
+        # Ensure correct column order
+        try:
+            input_transformed = rf_pipeline.named_steps['preprocessor'].transform(input_data)
+        except Exception as e:
+            st.error(f"Error in preprocessing input: {e}")
+            st.stop()
 
-        # ----------------------------
-        # Transform input through preprocessor only (skip SMOTE)
-        # ----------------------------
-        input_transformed = preprocessor.transform(input_data)
+        # Predict
+        try:
+            probability = rf_pipeline.named_steps['clf'].predict_proba(input_transformed)[0, 1]
+            prediction = 1 if probability >= threshold else 0
+            label = "❗ High Risk (Likely Default)" if prediction else "✅ Low Risk (Good Candidate)"
 
-        # ----------------------------
-        # Select Random Forest classifier
-        # ----------------------------
-        rf_clf = rf_pipeline.named_steps['clf']
-
-        # ----------------------------
-        # Predict probability
-        # ----------------------------
-        probability = rf_clf.predict_proba(input_transformed)[0, 1]
-        prediction = 1 if probability >= threshold else 0
-        label = "❗ High Risk (Likely Default)" if prediction else "✅ Low Risk (Good Candidate)"
-
-        # ----------------------------
-        # Show Results
-        # ----------------------------
-        st.success("✅ Prediction Completed")
-        st.markdown("### 🔍 Prediction Summary")
-        st.metric("Prediction", label)
-        st.metric("Default Probability", f"{probability * 100:.2f}%")
+            # Show Results
+            st.success("✅ Prediction Completed")
+            st.markdown("### 🔍 Prediction Summary")
+            st.metric("Prediction", label)
+            st.metric("Default Probability", f"{probability * 100:.2f}%")
+        except Exception as e:
+            st.error(f"Prediction failed: {e}")
 
 # ----------------------------
 # Footer
@@ -124,6 +115,6 @@ if submitted:
 st.markdown("""
 ---
 <div style="text-align: center; color: gray; font-size: small;">
-    🧠 Applied Machine Learning Project &middot; University of Ghana (UoG) &middot; July 2025
+    Applied Machine Learning Project &middot; University of Ghana &middot; July 2025
 </div>
 """, unsafe_allow_html=True)
