@@ -1,0 +1,6 @@
+applicant_id,age,gender,marital_status,household_size,education_level,region,occupation,monthly_income_ghs,loan_amount_requested_ghs,loan_purpose,loan_term_months,late_payments_pastyear,loan_to_income_ratio,debt_to_income_ratio,previous_default_count,mobile_money_tx_volume_3m,group_membership,gps_distance_to_town_km,savings_ghs,number_of_dependents,previous_loan_history,credit_score,missed_meetings_pastyear,years_in_occupation,business_experience_years,collateral_value_ghs,guarantor_available
+CUST-001,35,Male,Married,4,JHS,Greater Accra,Trader,2500,8000,Business,12,1,3.2,1.5,0,650,Yes,5,1200,3,Yes,650,2,8,5,15000,Yes
+CUST-002,42,Female,Married,6,Primary,Ashanti,Farmer,1800,5000,Agriculture,18,0,2.8,0.9,0,320,Yes,12,800,4,Yes,680,0,15,12,8000,Yes
+CUST-003,28,Male,Single,2,Tertiary,Eastern,Teacher,3500,10000,Education,24,3,2.9,2.1,1,890,No,3,2500,1,Yes,620,4,5,5,0,No
+CUST-004,50,Female,Widowed,5,No Education,Northern,Artisan,1200,3000,Home Improvement,12,2,2.5,1.8,0,150,Yes,25,400,3,Yes,600,3,18,15,5000,Yes
+CUST-005,33,Male,Married,4,SHS,Volta,Business Owner,4000,15000,Business,36,0,3.8,1.2,0,1200,No,8,5000,2,Yes,720,1,10,8,25000,Yes
