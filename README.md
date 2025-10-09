@@ -2,7 +2,6 @@
 
 [![Python](https://img.shields.io/badge/python-3.10-blue)](https://www.python.org/)  
 [![Streamlit](https://img.shields.io/badge/streamlit-1.29-orange)](https://streamlit.io/)  
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)  
 
 A machine learning-powered web application designed to assist Microfinance Institutions (MFIs) in rural areas with real-time credit risk assessment and loan default prediction.
 
