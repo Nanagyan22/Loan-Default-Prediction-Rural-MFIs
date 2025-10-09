@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)  
 
 🎯 **Project:** Credit Scoring System for Microfinance Institutions (MFIs)  
-🏫 **Institution:** University of Ghana  
+🏫 **Institution:** University of Ghana Business School 
 👤 **Author:** Francis Afful Gyan | ID: 22253332  
 📅 **Date:** October 2025  
 
@@ -51,14 +51,6 @@ The application uses a **Random Forest Classifier** trained on comprehensive bor
 - **Model Serialization**: joblib
 - **Deployment**: Streamlit Cloud
 
-## 📦 Installation
-
-### Prerequisites
-
-- Python 3.9 or higher
-- pip package manager
-- Git
-
 ### Setup Instructions
 
 1. **Clone the repository**:
@@ -102,7 +94,7 @@ streamlit run app.py
    - Financial information (income, savings)
    - Loan details (amount, interest rate, tenure)
 
-2. **Submit for Prediction**: Click the "Predict Default Risk" button
+2. **Submit for Prediction**: Click the "Predict Credit Score Risk" button
 
 3. **Review Results**: The system will display:
    - Default probability percentage
@@ -126,46 +118,6 @@ The system employs a **Random Forest Classifier**, chosen for its:
 - **F1-Score**: 0.68
 - **AUC-ROC**: 0.82
 
-### Training Data
-The model was trained on historical loan data including:
-- 10,000+ loan records from rural MFIs
-- 12 input features covering demographics, financials, and loan terms
-- Balanced dataset with appropriate handling of class imbalance
-
-### Feature Importance
-Top predictive features identified:
-1. Debt-to-income ratio
-2. Previous loan delinquency count
-3. Loan amount to income ratio
-4. Age of oldest credit line
-5. Employment stability (years at current job)
-
-## 🔧 Configuration
-
-### Environment Variables
-Create a `.env` file in the project root:
-```
-MODEL_PATH=rf_model.pkl
-SCALER_PATH=scaler.pkl
-CONFIDENCE_THRESHOLD=0.5
-```
-
-### Model Parameters
-Adjustable parameters in `config.py`:
-- Risk threshold (default: 0.5)
-- Feature scaling method
-- Model update frequency
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 👥 Author
 
 **Francis Afful Gyan**  
@@ -177,11 +129,8 @@ University of Ghana
 
 ## 🙏 Acknowledgments
 
-- University of Ghana, Department of Computer Science
+- University of Ghana,Department of Operations and Management Information System
 - Rural MFI partners for providing domain expertise
-- The Streamlit team for the excellent web framework
-- scikit-learn community for machine learning tools
-- Open-source contributors to the credit scoring domain
 
 ## 📚 References
 
