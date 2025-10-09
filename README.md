@@ -4,11 +4,6 @@
 [![Streamlit](https://img.shields.io/badge/streamlit-1.29-orange)](https://streamlit.io/)  
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)  
 
-🎯 **Project:** Credit Scoring System for Microfinance Institutions (MFIs)  
-🏫 **Institution:** University of Ghana Business School 
-👤 **Author:** Francis Afful Gyan | ID: 22253332  
-📅 **Date:** October 2025  
-
 A machine learning-powered web application designed to assist Microfinance Institutions (MFIs) in rural areas with real-time credit risk assessment and loan default prediction.
 
 ## 🎯 Project Overview
@@ -121,9 +116,9 @@ The system employs a **Random Forest Classifier**, chosen for its:
 ## 👥 Author
 
 **Francis Afful Gyan**  
-Student ID: 22253332  
-University of Ghana  
-📧 Email: francis.gyan@ug.edu.gh  
+👤 Student ID: 22253332  
+🏫 University of Ghana Business Student  
+📧 Email: francisaffulgyan@gmail.com 
 🔗 LinkedIn: [https://www.linkedin.com/in/francis-afful-gyan-2b27a5153/]  
 📅 Date: October 2025
 
