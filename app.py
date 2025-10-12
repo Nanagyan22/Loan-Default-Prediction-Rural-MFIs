@@ -75,7 +75,7 @@ def main():
     # Header
     st.markdown("""
     <div class="main-header">
-        <h1>🏦 UNIVERSITY OF GHANA BUSINESS SCHOOL</h1>
+        <h1>🏫 UNIVERSITY OF GHANA BUSINESS SCHOOL</h1>
         <h3>Project : Machine Learning Credit Scoring System</h3>
         <p>Rural Microfinance Credit Assessment Platform</p>
         <p style="font-size: 14px; margin-top: 10px;">Francis Afful Gyan | ID: 22253332</p>
@@ -1293,3 +1293,4 @@ def get_recommendation(default_prob):
 
 if __name__ == "__main__":
     main()
+
