@@ -19,13 +19,6 @@ from utils.explainability import ModelExplainer
 from utils.database import init_db, save_prediction, get_predictions, get_fairness_stats, save_batch_processing
 from utils.performance_tracking import PerformanceTracker
 
-# Configure logging
-logging.basicConfig(
-    filename='logs/app.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-
 # Page configuration
 st.set_page_config(
     page_title="UGBS Credit Scoring System",
@@ -1273,3 +1266,4 @@ def get_recommendation(default_prob):
 
 if __name__ == "__main__":
     main()
+
