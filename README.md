@@ -45,42 +45,6 @@ The application uses a **Random Forest Classifier** trained on comprehensive bor
 - **Model Serialization**: joblib
 - **Deployment**: Streamlit Cloud
 
-### Setup Instructions
-
-1. **Clone the repository**:
-```bash
-git clone https://github.com/your-username/loan-default-prediction-rural.git
-cd loan-default-prediction-rural
-```
-
-2. **Create a virtual environment**:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. **Install required dependencies**:
-```bash
-pip install -r requirements.txt
-```
-
-4. **Download the model files**:
-   - Ensure `rf_model.pkl` (Random Forest model) is in the project root
-   - Ensure `scaler.pkl` (preprocessing scaler) is in the project root
-
-## 🚀 Usage
-
-### Running Locally
-
-1. **Start the Streamlit application**:
-```bash
-streamlit run app.py
-```
-
-2. **Access the application**:
-   - Open your web browser
-   - Navigate to `http://localhost:8501`
-
 ### Using the Application
 
 1. **Input Borrower Information**: Fill in all required fields in the form:
@@ -139,3 +103,6 @@ The system employs a **Random Forest Classifier**, chosen for its:
 **📊 Project Status**: Active Development
 
 **⭐ If you find this project useful, please consider giving it a star!**
+
+## Thank You
+![Thank You](Thankyou1.png)
