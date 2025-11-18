@@ -71,7 +71,7 @@ The system employs a **Random Forest Classifier**, chosen for its:
 
 ### Performance Metrics
 - **Accuracy**: 86%
-- **Recall**: 74% (minimizing false negatives - missed defaulters)
+- **Recall**: 74% 
 - **Precision**: 62%
 - **F1-Score**: 0.68
 - **AUC-ROC**: 0.82
